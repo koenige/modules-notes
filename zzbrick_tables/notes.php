@@ -72,7 +72,7 @@ $zz['fields'][10]['fields'][3]['show_title'] = false;
 //	, child_notes.title AS note_title
 //	, /*_PREFIX_*/notes.title AS main_note_title
 //	FROM /*_PREFIX_*/notes_notes
-//	LEFT JOIN /*_PREFIX_*/notizen child_notes
+//	LEFT JOIN /*_PREFIX_*/notes child_notes
 //		ON /*_PREFIX_*/notes_notes.note_id = child_notes.note_id
 //	LEFT JOIN /*_PREFIX_*/notes
 //		ON /*_PREFIX_*/notes_notes.main_note_id = /*_PREFIX_*/notes.note_id
