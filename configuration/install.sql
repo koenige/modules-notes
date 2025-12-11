@@ -15,7 +15,7 @@
 CREATE TABLE `notes` (
   `note_id` int unsigned NOT NULL AUTO_INCREMENT,
   `topic` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `identifier` varchar(25) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `identifier` varchar(32) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `note` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `author_contact_id` int unsigned NOT NULL,
