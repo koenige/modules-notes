@@ -89,3 +89,18 @@ CREATE TABLE `notes_notes` (
 
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'notes', 'note_id', (SELECT DATABASE()), 'notes_notes', 'note_note_id', 'note_id', 'no-delete');
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'notes', 'note_id', (SELECT DATABASE()), 'notes_notes', 'note_note_id', 'main_note_id', 'no-delete');
+
+
+-- notes_events --
+CREATE TABLE `notes_events` (
+  `note_event_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `note_id` int unsigned NOT NULL,
+  `event_id` int unsigned NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`note_event_id`),
+  UNIQUE KEY `note_id` (`note_id`,`event_id`),
+  KEY `event_id` (`event_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'notes', 'note_id', (SELECT DATABASE()), 'notes_events', 'note_event_id', 'note_id', 'delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'events', 'event_id', (SELECT DATABASE()), 'notes_events', 'note_event_id', 'event_id', 'no-delete');

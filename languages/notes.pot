@@ -59,6 +59,10 @@ msgstr ""
 msgid "Categories for Notes"
 msgstr ""
 
+#: zzbrick_tables/notes-events.php
+msgid "Notes per Event"
+msgstr ""
+
 #: zzbrick_tables/notes-media.php
 msgid "Media for Notes"
 msgstr ""

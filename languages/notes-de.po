@@ -62,6 +62,10 @@ msgstr "Zugriff auf Notizen"
 msgid "Categories for Notes"
 msgstr "Kategorien für Notizen"
 
+#: zzbrick_tables/notes-events.php
+msgid "Notes per Event"
+msgstr "Notizen einer Veranstaltung"
+
 #: zzbrick_tables/notes-media.php
 msgid "Media for Notes"
 msgstr "Medien zu Notizen"
