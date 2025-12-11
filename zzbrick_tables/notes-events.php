@@ -58,3 +58,12 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/notes_events.*
 ';
 $zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/notes.identifier, /*_PREFIX_*/events.date_begin DESC';
 
+if (!empty($values['type'])) {
+	$zz['fields'][3]['sql'] = wrap_edit_sql($zz['fields'][3]['sql'], 'WHERE',
+		sprintf('event_category_id = /*_ID categories event/%s _*/', $values['type'])
+	);
+	$zz['sql'] = wrap_edit_sql($zz['sql'], 'WHERE',
+		sprintf('event_category_id = /*_ID categories event/%s _*/', $values['type'])
+	);
+}
+
