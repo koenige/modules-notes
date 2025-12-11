@@ -106,7 +106,6 @@ if (mf_notes_events_exist('event/event')) {
 	$zz['fields'][8]['sqlorder'] = '';
 	$zz['fields'][8]['max_records'] = 10;
 	$zz['fields'][8]['min_records'] = 1;
-	$zz['fields'][8]['hide_in_list'] = true;
 	$zz['fields'][8]['form_display'] = 'lines';
 	$zz['fields'][8]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][8]['fields'][3]['show_title'] = false;
@@ -121,12 +120,15 @@ if (mf_notes_events_exist('event/project')) {
 	$zz['fields'][9]['sqlorder'] = '';
 	$zz['fields'][9]['max_records'] = 10;
 	$zz['fields'][9]['min_records'] = 1;
-	$zz['fields'][9]['hide_in_list'] = true;
 	$zz['fields'][9]['form_display'] = 'lines';
 	$zz['fields'][9]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][9]['fields'][3]['show_title'] = false;
 	$zz['fields'][9]['fields'][3]['select_empty_no_add'] = true;
 	$zz['fields'][9]['fields'][4]['type'] = 'sequence';
+	if (!empty($zz['fields'][8])) {
+		$zz['fields'][8]['list_append_next'] = true;
+		$zz['fields'][8]['list_append_show_title'] = true;
+	}
 }
 
 /**

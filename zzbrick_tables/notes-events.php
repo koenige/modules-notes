@@ -58,11 +58,25 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/notes_events.*
 ';
 $zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/notes.identifier, /*_PREFIX_*/events.date_begin DESC';
 
+$zz['subselect']['sql'] = 'SELECT note_id, event, /*_PREFIX_*/events.identifier
+	FROM /*_PREFIX_*/notes_events
+	LEFT JOIN /*_PREFIX_*/events USING (event_id)';
+$zz['subselect']['sql_ignore'] = ['identifier'];
+$zz['subselect']['prefix'] = '<p>';
+$zz['subselect']['suffix'] = '</p>';
+$zz['subselect']['link'] = [
+	'area' => $values['type'] ? sprintf('events_%s', $values['type']) : 'events_event',
+	'fields' => ['identifier']
+];
+
 if (!empty($values['type'])) {
 	$zz['fields'][3]['sql'] = wrap_edit_sql($zz['fields'][3]['sql'], 'WHERE',
 		sprintf('event_category_id = /*_ID categories event/%s _*/', $values['type'])
 	);
 	$zz['sql'] = wrap_edit_sql($zz['sql'], 'WHERE',
+		sprintf('event_category_id = /*_ID categories event/%s _*/', $values['type'])
+	);
+	$zz['subselect']['sql'] = wrap_edit_sql($zz['subselect']['sql'], 'WHERE',
 		sprintf('event_category_id = /*_ID categories event/%s _*/', $values['type'])
 	);
 }
