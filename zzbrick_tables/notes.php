@@ -24,7 +24,7 @@ $zz['fields'][1]['show_id'] = true;
 $zz['fields'][2]['field_name'] = 'topic';
 $zz['fields'][2]['list_append_next'] = true;
 $zz['fields'][2]['list_prefix'] = '<p><strong>';
-$zz['fields'][2]['list_suffix'] = '</strong><br>';
+$zz['fields'][2]['list_suffix'] = '</strong></p>';
 
 $zz['fields'][3]['field_name'] = 'note';
 $zz['fields'][3]['type'] = 'memo';
@@ -216,3 +216,5 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/notes.*
 		ON /*_PREFIX_*/contacts.contact_category_id = /*_PREFIX_*/categories.category_id
 ';
 $zz['sqlorder'] = ' ORDER BY created, topic';
+
+wrap_setting('zzform_search', 'both');
