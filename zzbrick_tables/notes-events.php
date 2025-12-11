@@ -31,24 +31,23 @@ $zz['fields'][2]['display_field'] = 'topic';
 $zz['fields'][3]['title'] = 'Event';
 $zz['fields'][3]['field_name'] = 'event_id';
 $zz['fields'][3]['type'] = 'select';
-$zz['fields'][3]['sql'] = sprintf('SELECT event_id
-		, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
+$zz['fields'][3]['sql'] = 'SELECT event_id, event, date_begin
 	FROM /*_PREFIX_*/events
-	ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
+	ORDER BY date_begin DESC';
+$zz['fields'][3]['sql_format'][2] = 'wrap_date_plain';
 $zz['fields'][3]['display_field'] = 'event';
-$zz['fields'][3]['character_set'] = 'utf8';
 
 $zz['fields'][99]['field_name'] = 'last_update';
 $zz['fields'][99]['type'] = 'timestamp';
 $zz['fields'][99]['hide_in_list'] = true;
 
 
-$zz['sql'] = sprintf('SELECT /*_PREFIX_*/notes_events.* 
+$zz['sql'] = 'SELECT /*_PREFIX_*/notes_events.* 
 	, /*_PREFIX_*/notes.topic
-	, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
+	, /*_PREFIX_*/events.event, /*_PREFIX_*/events.date_begin
 	FROM /*_PREFIX_*/notes_events
 	LEFT JOIN /*_PREFIX_*/notes USING (note_id)
 	LEFT JOIN /*_PREFIX_*/events USING (event_id)
-', wrap_placeholder('mysql_date_format'));
+';
 $zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/notes.identifier, /*_PREFIX_*/events.date_begin DESC';
 

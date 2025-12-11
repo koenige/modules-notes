@@ -111,11 +111,10 @@ if (mf_notes_events_exist('event/event')) {
 	$zz['fields'][8]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][8]['fields'][3]['show_title'] = false;
 	$zz['fields'][8]['fields'][3]['select_empty_no_add'] = true;
-	$zz['fields'][8]['fields'][3]['sql'] = sprintf('SELECT event_id
-			, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
+	$zz['fields'][8]['fields'][3]['sql'] = 'SELECT event_id, event, date_begin
 		FROM /*_PREFIX_*/events
 		WHERE event_category_id = /*_ID categories event/event _*/
-		ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
+		ORDER BY date_begin DESC';
 	$zz['fields'][8]['sql'] = wrap_edit_sql($zz['fields'][8]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/event _*/');
 }
 if (mf_notes_events_exist('event/project')) {
@@ -131,11 +130,10 @@ if (mf_notes_events_exist('event/project')) {
 	$zz['fields'][9]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][9]['fields'][3]['show_title'] = false;
 	$zz['fields'][9]['fields'][3]['select_empty_no_add'] = true;
-	$zz['fields'][9]['fields'][3]['sql'] = sprintf('SELECT event_id
-			, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
+	$zz['fields'][9]['fields'][3]['sql'] = 'SELECT event_id, event, date_begin
 		FROM /*_PREFIX_*/events
 		WHERE event_category_id = /*_ID categories event/project _*/
-		ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
+		ORDER BY date_begin DESC';
 	$zz['fields'][9]['sql'] = wrap_edit_sql($zz['fields'][9]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/project _*/');
 }
 
