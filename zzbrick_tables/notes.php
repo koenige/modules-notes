@@ -26,34 +26,11 @@ $zz['fields'][2]['list_append_next'] = true;
 $zz['fields'][2]['list_prefix'] = '<p><strong>';
 $zz['fields'][2]['list_suffix'] = '</strong><br>';
 
-$zz['fields'][4]['field_name'] = 'created';
-$zz['fields'][4]['type'] = 'datetime';
-$zz['fields'][4]['default'] = date('d.m.Y H:i:s');
-$zz['fields'][4]['list_append_next'] = true;
-
-if (wrap_package('contacts')) {
-	$zz['fields'][5]['title'] = 'Author';
-	$zz['fields'][5]['field_name'] = 'author_contact_id';
-	$zz['fields'][5]['type'] = 'select';
-	$zz['fields'][5]['sql'] = 'SELECT contact_id, contact, identifier
-		FROM /*_PREFIX_*/contacts
-		ORDER BY identifier';
-	$zz['fields'][5]['sql_character_set'][1] = 'utf8';
-	$zz['fields'][5]['display_field'] = 'contact';
-	$zz['fields'][5]['link'] = [
-		'function' => 'mf_contacts_profile_path',
-		'fields' => ['contact_identifier', 'contact_parameters']
-	];
-	$zz['fields'][5]['default'] = $_SESSION['user_id'];
-	$zz['fields'][5]['list_prefix'] = ' <em>(';
-	$zz['fields'][5]['list_suffix'] = ')</em></p>';
-	$zz['fields'][5]['list_append_next'] = true;
-}
-
 $zz['fields'][3]['field_name'] = 'note';
 $zz['fields'][3]['type'] = 'memo';
 $zz['fields'][3]['format'] = 'markdown';
 $zz['fields'][3]['list_format'] = 'markdown';
+$zz['fields'][3]['list_append_next'] = true;
 
 /*
 $zz['fields'][10] = zzform_include('notes-notes');
@@ -98,6 +75,29 @@ $zz['fields'][10]['fields'][3]['show_title'] = false;
 //	LEFT JOIN /*_PREFIX_*/notes main_notes
 //		ON /*_PREFIX_*/notes_notes.main_note_id = main_notes.note_id
 //';
+
+$zz['fields'][4]['field_name'] = 'created';
+$zz['fields'][4]['type'] = 'datetime';
+$zz['fields'][4]['default'] = date('d.m.Y H:i:s');
+$zz['fields'][4]['list_append_next'] = true;
+
+if (wrap_package('contacts')) {
+	$zz['fields'][5]['title'] = 'Author';
+	$zz['fields'][5]['field_name'] = 'author_contact_id';
+	$zz['fields'][5]['type'] = 'select';
+	$zz['fields'][5]['sql'] = 'SELECT contact_id, contact, identifier
+		FROM /*_PREFIX_*/contacts
+		ORDER BY identifier';
+	$zz['fields'][5]['sql_character_set'][1] = 'utf8';
+	$zz['fields'][5]['display_field'] = 'contact';
+	$zz['fields'][5]['link'] = [
+		'function' => 'mf_contacts_profile_path',
+		'fields' => ['contact_identifier', 'contact_parameters']
+	];
+	$zz['fields'][5]['default'] = $_SESSION['user_id'];
+	$zz['fields'][5]['list_prefix'] = ' <em>(';
+	$zz['fields'][5]['list_suffix'] = ')</em></p>';
+}
 
 if (wrap_package('default')) {
 	$zz['fields'][12] = zzform_include('notes-categories');
