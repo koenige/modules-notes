@@ -31,10 +31,11 @@ $zz['fields'][2]['display_field'] = 'topic';
 $zz['fields'][3]['title'] = 'Category';
 $zz['fields'][3]['field_name'] = 'category_id';
 $zz['fields'][3]['type'] = 'select';
-$zz['fields'][3]['sql'] = 'SELECT category_id, category
+$zz['fields'][3]['sql'] = 'SELECT category_id, category, path
 	FROM /*_PREFIX_*/categories 
 	ORDER BY category';
 $zz['fields'][3]['display_field'] = 'category';
+$zz['fields'][3]['unique_ignore'] = ['path'];
 
 $zz['fields'][99]['field_name'] = 'last_update';
 $zz['fields'][99]['type'] = 'timestamp';
