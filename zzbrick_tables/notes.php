@@ -99,44 +99,57 @@ if (wrap_package('contacts')) {
 	$zz['fields'][5]['list_suffix'] = ')</em></p>';
 }
 
-if (wrap_package('events')) {
-	if (wrap_category_id('event/event')) {
-		$zz['fields'][8] = zzform_include('notes-events');
-		$zz['fields'][8]['title'] = 'Events';
-		$zz['fields'][8]['type'] = 'subtable';
-		$zz['fields'][8]['sqlorder'] = '';
-		$zz['fields'][8]['max_records'] = 10;
-		$zz['fields'][8]['min_records'] = 1;
-		$zz['fields'][8]['hide_in_list'] = true;
-		$zz['fields'][8]['form_display'] = 'lines';
-		$zz['fields'][8]['fields'][2]['type'] = 'foreign_key';
-		$zz['fields'][8]['fields'][3]['show_title'] = false;
-		$zz['fields'][8]['fields'][3]['sql'] = sprintf('SELECT event_id
-				, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
-			FROM /*_PREFIX_*/events
-			WHERE event_category_id = /*_ID categories event/event _*/
-			ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
-		$zz['fields'][8]['sql'] = wrap_edit_sql($zz['fields'][8]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/event _*/');
-	}
-	if (wrap_category_id('event/project')) {
-		$zz['fields'][9] = zzform_include('notes-events');
-		$zz['fields'][9]['title'] = 'Projects';
-		$zz['fields'][9]['type'] = 'subtable';
-		$zz['fields'][9]['table_name'] = 'projects';
-		$zz['fields'][9]['sqlorder'] = '';
-		$zz['fields'][9]['max_records'] = 10;
-		$zz['fields'][9]['min_records'] = 1;
-		$zz['fields'][9]['hide_in_list'] = true;
-		$zz['fields'][9]['form_display'] = 'lines';
-		$zz['fields'][9]['fields'][2]['type'] = 'foreign_key';
-		$zz['fields'][9]['fields'][3]['show_title'] = false;
-		$zz['fields'][9]['fields'][3]['sql'] = sprintf('SELECT event_id
-				, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
-			FROM /*_PREFIX_*/events
-			WHERE event_category_id = /*_ID categories event/project _*/
-			ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
-		$zz['fields'][9]['sql'] = wrap_edit_sql($zz['fields'][9]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/project _*/');
-	}
+if (mf_notes_events_exist('event/event')) {
+	$zz['fields'][8] = zzform_include('notes-events');
+	$zz['fields'][8]['title'] = 'Events';
+	$zz['fields'][8]['type'] = 'subtable';
+	$zz['fields'][8]['sqlorder'] = '';
+	$zz['fields'][8]['max_records'] = 10;
+	$zz['fields'][8]['min_records'] = 1;
+	$zz['fields'][8]['hide_in_list'] = true;
+	$zz['fields'][8]['form_display'] = 'lines';
+	$zz['fields'][8]['fields'][2]['type'] = 'foreign_key';
+	$zz['fields'][8]['fields'][3]['show_title'] = false;
+	$zz['fields'][8]['fields'][3]['select_empty_no_add'] = true;
+	$zz['fields'][8]['fields'][3]['sql'] = sprintf('SELECT event_id
+			, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
+		FROM /*_PREFIX_*/events
+		WHERE event_category_id = /*_ID categories event/event _*/
+		ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
+	$zz['fields'][8]['sql'] = wrap_edit_sql($zz['fields'][8]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/event _*/');
+}
+if (mf_notes_events_exist('event/project')) {
+	$zz['fields'][9] = zzform_include('notes-events');
+	$zz['fields'][9]['title'] = 'Projects';
+	$zz['fields'][9]['type'] = 'subtable';
+	$zz['fields'][9]['table_name'] = 'projects';
+	$zz['fields'][9]['sqlorder'] = '';
+	$zz['fields'][9]['max_records'] = 10;
+	$zz['fields'][9]['min_records'] = 1;
+	$zz['fields'][9]['hide_in_list'] = true;
+	$zz['fields'][9]['form_display'] = 'lines';
+	$zz['fields'][9]['fields'][2]['type'] = 'foreign_key';
+	$zz['fields'][9]['fields'][3]['show_title'] = false;
+	$zz['fields'][9]['fields'][3]['select_empty_no_add'] = true;
+	$zz['fields'][9]['fields'][3]['sql'] = sprintf('SELECT event_id
+			, CONCAT(/*_PREFIX_*/events.event, " (", DATE_FORMAT(/*_PREFIX_*/events.date_begin, "%s"), ")") AS event
+		FROM /*_PREFIX_*/events
+		WHERE event_category_id = /*_ID categories event/project _*/
+		ORDER BY date_begin DESC', wrap_placeholder('mysql_date_format'));
+	$zz['fields'][9]['sql'] = wrap_edit_sql($zz['fields'][9]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/project _*/');
+}
+
+/**
+ * check if events of a certain category exist
+ *
+ * @param string $category_path
+ * @return bool
+ */
+function mf_notes_events_exist($category_path) {
+	if (!wrap_package('events')) return false;
+	if (!wrap_category_id($category_path)) return false;
+	$sql = 'SELECT event_id FROM events WHERE event_category_id = /*_ID categories %s _*/ LIMIT 1';
+	return wrap_db_fetch(sprintf($sql, $category_path), '', 'single value') ? true : false;
 }
 
 if (wrap_package('default')) {
