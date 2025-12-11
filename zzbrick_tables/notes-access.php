@@ -28,6 +28,13 @@ $zz['fields'][2]['sql'] = 'SELECT note_id, topic, created
 	ORDER BY identifier, created';
 $zz['fields'][2]['display_field'] = 'topic';
 
+$zz['fields'][5]['title'] = 'No.';
+$zz['fields'][5]['field_name'] = 'sequence';
+$zz['fields'][5]['type'] = 'number';
+$zz['fields'][5]['auto_value'] = 'increment';
+$zz['fields'][5]['def_val_ignore'] = true;
+$zz['fields'][5]['exclude_from_search'] = true;
+
 $zz['fields'][3]['title'] = 'Usergroup';
 $zz['fields'][3]['field_name'] = 'usergroup_id';
 $zz['fields'][3]['type'] = 'select';

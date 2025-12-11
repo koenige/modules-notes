@@ -29,6 +29,13 @@ $zz['fields'][2]['sql'] = 'SELECT note_id, topic, created
 $zz['fields'][2]['display_field'] = 'note_topic';
 $zz['fields'][2]['search'] = '/*_PREFIX_*/notes.topic';
 
+$zz['fields'][4]['title'] = 'No.';
+$zz['fields'][4]['field_name'] = 'sequence';
+$zz['fields'][4]['type'] = 'number';
+$zz['fields'][4]['auto_value'] = 'increment';
+$zz['fields'][4]['def_val_ignore'] = true;
+$zz['fields'][4]['exclude_from_search'] = true;
+
 $zz['fields'][3]['title'] = 'Medium';
 $zz['fields'][3]['field_name'] = 'medium_id';
 $zz['fields'][3]['type'] = 'select';

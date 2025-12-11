@@ -115,6 +115,7 @@ if (mf_notes_events_exist('event/event')) {
 		FROM /*_PREFIX_*/events
 		WHERE event_category_id = /*_ID categories event/event _*/
 		ORDER BY date_begin DESC';
+	$zz['fields'][8]['fields'][4]['type'] = 'sequence';
 	$zz['fields'][8]['sql'] = wrap_edit_sql($zz['fields'][8]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/event _*/');
 }
 if (mf_notes_events_exist('event/project')) {
@@ -134,6 +135,7 @@ if (mf_notes_events_exist('event/project')) {
 		FROM /*_PREFIX_*/events
 		WHERE event_category_id = /*_ID categories event/project _*/
 		ORDER BY date_begin DESC';
+	$zz['fields'][9]['fields'][4]['type'] = 'sequence';
 	$zz['fields'][9]['sql'] = wrap_edit_sql($zz['fields'][9]['sql'], 'WHERE', 'event_category_id = /*_ID categories event/project _*/');
 }
 
@@ -161,6 +163,7 @@ if (wrap_package('default')) {
 	$zz['fields'][12]['form_display'] = 'lines';
 	$zz['fields'][12]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][12]['fields'][3]['show_title'] = false;
+	$zz['fields'][12]['fields'][4]['type'] = 'sequence';
 }
 
 if (wrap_package('activities')) {
@@ -175,6 +178,7 @@ if (wrap_package('activities')) {
 	$zz['fields'][13]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][13]['fields'][3]['show_title'] = false;
 	$zz['fields'][13]['fields'][3]['append_next'] = true;
+	$zz['fields'][13]['fields'][5]['type'] = 'sequence';
 }
 
 if (wrap_package('media')) {
@@ -189,6 +193,7 @@ if (wrap_package('media')) {
 	$zz['fields'][14]['fields'][2]['type'] = 'foreign_key';
 	$zz['fields'][14]['fields'][3]['show_title'] = false;
 	$zz['fields'][14]['fields'][3]['append_next'] = true;
+	$zz['fields'][14]['fields'][4]['type'] = 'sequence';
 }
 
 $zz['fields'][7]['field_name'] = 'identifier';
