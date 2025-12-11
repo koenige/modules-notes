@@ -20,15 +20,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: zzbrick_tables/notes.php
 msgid "Notes"
 msgstr "Notizen"
 
 #: zzbrick_tables/notes.php
-msgid "Title"
-msgstr "Titel"
+msgid "Topic"
+msgstr "Thema"
 
 #: zzbrick_tables/notes.php
 msgid "Created"

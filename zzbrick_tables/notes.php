@@ -21,14 +21,14 @@ $zz['fields'][1]['field_name'] = 'note_id';
 $zz['fields'][1]['type'] = 'id';
 $zz['fields'][1]['show_id'] = true;
 
-$zz['fields'][2]['field_name'] = 'title';
+$zz['fields'][2]['field_name'] = 'topic';
 $zz['fields'][2]['list_append_next'] = true;
 $zz['fields'][2]['list_prefix'] = '<p><strong>';
 $zz['fields'][2]['list_suffix'] = '</strong><br>';
 
 $zz['fields'][4]['field_name'] = 'created';
-$zz['fields'][4]['type'] = 'date';
-$zz['fields'][4]['default'] = date('d.m.Y');
+$zz['fields'][4]['type'] = 'datetime';
+$zz['fields'][4]['default'] = date('d.m.Y H:i:s');
 $zz['fields'][4]['list_append_next'] = true;
 
 if (wrap_package('contacts')) {
@@ -69,8 +69,8 @@ $zz['fields'][10]['fields'][3]['show_title'] = false;
 */
 // $zz['fields'][10]['sql'] = 'SELECT /*_PREFIX_*/notes_notes.* 
 //
-//	, child_notes.title AS note_title
-//	, /*_PREFIX_*/notes.title AS main_note_title
+//	, child_notes.topic AS note_topic
+//	, /*_PREFIX_*/notes.topic AS main_topic
 //	FROM /*_PREFIX_*/notes_notes
 //	LEFT JOIN /*_PREFIX_*/notes child_notes
 //		ON /*_PREFIX_*/notes_notes.note_id = child_notes.note_id
@@ -90,8 +90,8 @@ $zz['fields'][10]['fields'][3]['show_title'] = false;
 //$zz['fields'][11]['fields'][3]['type'] = 'foreign_key';
 //$zz['fields'][11]['fields'][2]['show_title'] = false;
 //$zz['fields'][11]['sql'] = 'SELECT /*_PREFIX_*/notes_notes.* 
-//	, /*_PREFIX_*/notes.title AS note_title
-//	, main_notes.title AS main_note_title
+//	, /*_PREFIX_*/notes.topic AS note_topic
+//	, main_notes.topic AS main_topic
 //	FROM /*_PREFIX_*/notes_notes
 //	LEFT JOIN /*_PREFIX_*/notes
 //		ON notes_notes.note_id = /*_PREFIX_*/notes.note_id
@@ -140,6 +140,11 @@ if (wrap_package('media')) {
 	$zz['fields'][14]['fields'][3]['append_next'] = true;
 }
 
+$zz['fields'][7]['field_name'] = 'identifier';
+$zz['fields'][7]['type'] = 'identifier';
+$zz['fields'][7]['fields'] = ['topic'];
+$zz['fields'][7]['hide_in_list'] = true;
+
 $zz['fields'][99]['field_name'] = 'last_update';
 $zz['fields'][99]['type'] = 'timestamp';
 $zz['fields'][99]['hide_in_list'] = true;
@@ -154,4 +159,4 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/notes.*
 	LEFT JOIN /*_PREFIX_*/categories
 		ON /*_PREFIX_*/contacts.contact_category_id = /*_PREFIX_*/categories.category_id
 ';
-$zz['sqlorder'] = ' ORDER BY created, title';
+$zz['sqlorder'] = ' ORDER BY created, topic';

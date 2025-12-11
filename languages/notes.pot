@@ -24,7 +24,7 @@ msgid "Notes"
 msgstr ""
 
 #: zzbrick_tables/notes.php
-msgid "Title"
+msgid "Topic"
 msgstr ""
 
 #: zzbrick_tables/notes.php

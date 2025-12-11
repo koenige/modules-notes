@@ -23,10 +23,10 @@ $zz['fields'][1]['type'] = 'id';
 $zz['fields'][2]['title'] = 'Note';
 $zz['fields'][2]['field_name'] = 'note_id';
 $zz['fields'][2]['type'] = 'select';
-$zz['fields'][2]['sql'] = 'SELECT note_id, title, created
+$zz['fields'][2]['sql'] = 'SELECT note_id, topic, created
 	FROM /*_PREFIX_*/notes 
-	ORDER BY title, created';
-$zz['fields'][2]['display_field'] = 'title';
+	ORDER BY identifier, created';
+$zz['fields'][2]['display_field'] = 'topic';
 
 $zz['fields'][3]['title'] = 'Category';
 $zz['fields'][3]['field_name'] = 'category_id';
@@ -42,11 +42,11 @@ $zz['fields'][99]['hide_in_list'] = true;
 
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/notes_categories.* 
-	, /*_PREFIX_*/notes.title
+	, /*_PREFIX_*/notes.topic
 	, /*_PREFIX_*/categories.category
 	FROM /*_PREFIX_*/notes_categories
 	LEFT JOIN /*_PREFIX_*/notes
 		ON /*_PREFIX_*/notes_categories.note_id = /*_PREFIX_*/notes.note_id
 	LEFT JOIN /*_PREFIX_*/categories USING (category_id)
 ';
-$zz['sqlorder'] = ' ORDER BY title, category';
+$zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/notes.identifier, category';

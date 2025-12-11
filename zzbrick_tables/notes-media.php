@@ -23,11 +23,11 @@ $zz['fields'][1]['type'] = 'id';
 $zz['fields'][2]['title'] = 'Note';
 $zz['fields'][2]['field_name'] = 'note_id';
 $zz['fields'][2]['type'] = 'select';
-$zz['fields'][2]['sql'] = 'SELECT note_id, title, created
+$zz['fields'][2]['sql'] = 'SELECT note_id, topic, created
 	FROM /*_PREFIX_*/notes 
-	ORDER BY title, created';
-$zz['fields'][2]['display_field'] = 'note_title';
-$zz['fields'][2]['search'] = '/*_PREFIX_*/notes.title';
+	ORDER BY identifier, created';
+$zz['fields'][2]['display_field'] = 'note_topic';
+$zz['fields'][2]['search'] = '/*_PREFIX_*/notes.topic';
 
 $zz['fields'][3]['title'] = 'Medium';
 $zz['fields'][3]['field_name'] = 'medium_id';
@@ -46,10 +46,10 @@ $zz['fields'][99]['hide_in_list'] = true;
 
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/notes_media.* 
-	, /*_PREFIX_*/notes.title AS note_title
+	, /*_PREFIX_*/notes.topic AS note_topic
 	, /*_PREFIX_*/media.title AS medium_title
 	FROM /*_PREFIX_*/notes_media
 	LEFT JOIN /*_PREFIX_*/notes USING (note_id)
 	LEFT JOIN /*_PREFIX_*/media USING (medium_id)
 ';
-$zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/notes.title, /*_PREFIX_*/media.title';
+$zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/notes.identifier, /*_PREFIX_*/media.title';

@@ -23,20 +23,20 @@ $zz['fields'][1]['type'] = 'id';
 $zz['fields'][2]['title'] = 'Note';
 $zz['fields'][2]['field_name'] = 'note_id';
 $zz['fields'][2]['type'] = 'select';
-$zz['fields'][2]['sql'] = 'SELECT note_id, title, created
+$zz['fields'][2]['sql'] = 'SELECT note_id, topic, created
 	FROM /*_PREFIX_*/notes 
-	ORDER BY title, created';
-$zz['fields'][2]['display_field'] = 'note_title';
-$zz['fields'][2]['search'] = 'notes.title';
+	ORDER BY identifier, created';
+$zz['fields'][2]['display_field'] = 'note_topic';
+$zz['fields'][2]['search'] = 'notes.topic';
 
 $zz['fields'][3]['title'] = 'Part of';
 $zz['fields'][3]['field_name'] = 'main_note_id';
 $zz['fields'][3]['type'] = 'select';
-$zz['fields'][3]['sql'] = 'SELECT note_id, title, created
+$zz['fields'][3]['sql'] = 'SELECT note_id, topic, created
 	FROM /*_PREFIX_*/notes 
-	ORDER BY title, created';
-$zz['fields'][3]['display_field'] = 'main_note_title';
-$zz['fields'][3]['search'] = 'main_notes.title';
+	ORDER BY topic, created';
+$zz['fields'][3]['display_field'] = 'main_note_topic';
+$zz['fields'][3]['search'] = 'main_notes.topic';
 
 $zz['fields'][99]['field_name'] = 'last_update';
 $zz['fields'][99]['type'] = 'timestamp';
@@ -44,12 +44,12 @@ $zz['fields'][99]['hide_in_list'] = true;
 
 
 $zz['sql'] = 'SELECT /*_PREFIX_*/notes_notes.* 
-	, notes.title AS note_title
-	, main_notes.title AS main_note_title
+	, notes.topic AS note_topic
+	, main_notes.topic AS main_note_topic
 	FROM /*_PREFIX_*/notes_notes
 	LEFT JOIN /*_PREFIX_*/notes notes
 		ON /*_PREFIX_*/notes_notes.note_id = notes.note_id
 	LEFT JOIN /*_PREFIX_*/notes main_notes
 		ON /*_PREFIX_*/notes_notes.main_note_id = main_notes.note_id
 ';
-$zz['sqlorder'] = ' ORDER BY notes.title, main_notes.title';
+$zz['sqlorder'] = ' ORDER BY notes.identifier, main_notes.topic';

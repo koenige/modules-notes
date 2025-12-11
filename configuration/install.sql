@@ -14,13 +14,14 @@
 -- notes --
 CREATE TABLE `notes` (
   `note_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identifier` varchar(25) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `note` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created` date NOT NULL,
+  `created` datetime NOT NULL,
   `author_contact_id` int unsigned NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`note_id`),
-  UNIQUE KEY `title_created` (`title`(200),`created`),
+  UNIQUE KEY `identifier` (`identifier`),
   KEY `author_contact_id` (`author_contact_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
