@@ -25,9 +25,8 @@ $zz['sql'] = wrap_edit_sql($zz['sql'], 'JOIN',
 	'LEFT JOIN notes_events USING (note_id)'
 );
 
-// subtitle for project filter
+// subtitle for project filter, use notes_events as Alias because of WHERE
 $zz['subtitle']['event_id']['sql'] = 'SELECT event_id, event, identifier
-	FROM events
-	LEFT JOIN notes_events USING (event_id)
+	FROM events notes_events
 	ORDER BY identifier';
 $zz['subtitle']['event_id']['var'] = ['event'];
