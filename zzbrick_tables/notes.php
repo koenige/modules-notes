@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/notes
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009, 2011-2013, 2016, 2019-2020, 2023, 2025 Gustaf Mossakowski
+ * @copyright Copyright © 2009, 2011-2013, 2016, 2019-2020, 2023, 2025-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -91,8 +91,9 @@ if (wrap_package('contacts')) {
 	$zz['fields'][5]['sql_character_set'][1] = 'utf8';
 	$zz['fields'][5]['display_field'] = 'contact';
 	$zz['fields'][5]['link'] = [
-		'function' => 'mf_contacts_profile_path',
-		'fields' => ['contact_identifier', 'contact_parameters']
+		'area' => 'contacts_profile[%s]',
+		'area_fields' => ['contact_scope'],
+		'fields' => ['contact_identifier']
 	];
 	$zz['fields'][5]['default'] = $_SESSION['user_id'];
 	$zz['fields'][5]['list_prefix'] = ' <em>(';
@@ -201,6 +202,10 @@ $zz['fields'][99]['hide_in_list'] = true;
 $zz['sql'] = 'SELECT /*_PREFIX_*/notes.* 
 		, /*_PREFIX_*/contacts.identifier AS contact_identifier, contact
 		, /*_PREFIX_*/categories.parameters AS contact_parameters
+		, (CASE WHEN LOCATE("&type=", /*_PREFIX_*/categories.parameters) > 0 THEN
+			SUBSTRING_INDEX(SUBSTRING_INDEX(/*_PREFIX_*/categories.parameters, "&type=", -1), "&", 1)
+			ELSE "*" END
+		) AS contact_scope
 	FROM /*_PREFIX_*/notes
 	LEFT JOIN /*_PREFIX_*/contacts 
 		ON /*_PREFIX_*/notes.author_contact_id = /*_PREFIX_*/contacts.contact_id
