@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- notes module\n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2026-05-13 08:58+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
 "Language-Team: \n"
@@ -20,39 +20,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
-
-#: zzbrick_tables/notes.php
-msgid "Notes"
-msgstr "Notizen"
-
-#: zzbrick_tables/notes.php
-msgid "Topic"
-msgstr "Thema"
-
-#: zzbrick_tables/notes.php
-msgid "Created"
-msgstr "Erstellt"
+"X-Generator: Poedit 3.9\n"
 
 #: zzbrick_tables/notes.php
 msgid "Author"
 msgstr "Autor"
 
 #: zzbrick_tables/notes.php
-msgid "Note"
-msgstr "Notiz"
+msgid "Created"
+msgstr "Erstellt"
 
 #: zzbrick_tables/notes.php
-msgid "Part of"
-msgstr "Teil von"
+msgid "Item"
+msgstr "Element"
 
 #: zzbrick_tables/notes.php
 msgid "Items"
 msgstr "Elemente"
 
 #: zzbrick_tables/notes.php
-msgid "Item"
-msgstr "Element"
+msgid "Note"
+msgstr "Notiz"
+
+#: zzbrick_tables/notes.php
+msgid "Notes"
+msgstr "Notizen"
+
+#: zzbrick_tables/notes.php
+msgid "Part of"
+msgstr "Teil von"
+
+#: zzbrick_tables/notes.php
+msgid "Topic"
+msgstr "Thema"
 
 #: zzbrick_tables/notes-access.php
 msgid "Access to Notes"
