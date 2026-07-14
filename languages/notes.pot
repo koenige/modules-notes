@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- notes module\n"
-"POT-Creation-Date: 2026-05-13 08:58+0000\n"
+"POT-Creation-Date: 2026-07-14 17:42+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,54 +16,126 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: zzbrick_tables/notes.php
-msgid "Author"
-msgstr ""
-
-#: zzbrick_tables/notes.php
-msgid "Created"
-msgstr ""
-
-#: zzbrick_tables/notes.php
-msgid "Item"
-msgstr ""
-
-#: zzbrick_tables/notes.php
-msgid "Items"
-msgstr ""
-
-#: zzbrick_tables/notes.php
-msgid "Note"
-msgstr ""
-
-#: zzbrick_tables/notes.php
+#: zzbrick_tables/notes.php:16
 msgid "Notes"
 msgstr ""
 
-#: zzbrick_tables/notes.php
-msgid "Part of"
+#: zzbrick_tables/notes.php:19
+#: zzbrick_tables/notes-access.php:19
+#: zzbrick_tables/notes-categories.php:19
+#: zzbrick_tables/notes-events.php:19
+#: zzbrick_tables/notes-media.php:19
+#: zzbrick_tables/notes-notes.php:19
+msgid "ID"
 msgstr ""
 
-#: zzbrick_tables/notes.php
+#: zzbrick_tables/notes.php:24
 msgid "Topic"
 msgstr ""
 
-#: zzbrick_tables/notes-access.php
+#: zzbrick_tables/notes.php:29
+#: zzbrick_tables/notes-access.php:23
+#: zzbrick_tables/notes-categories.php:23
+#: zzbrick_tables/notes-events.php:23
+#: zzbrick_tables/notes-media.php:23
+#: zzbrick_tables/notes-notes.php:23
+msgid "Note"
+msgstr ""
+
+#: zzbrick_tables/notes.php:37
+#: zzbrick_tables/notes-notes.php:32
+msgid "Part of"
+msgstr ""
+
+#: zzbrick_tables/notes.php:59
+msgid "Items"
+msgstr ""
+
+#: zzbrick_tables/notes.php:60
+msgid "Item"
+msgstr ""
+
+#: zzbrick_tables/notes.php:79
+msgid "Created"
+msgstr ""
+
+#: zzbrick_tables/notes.php:85
+msgid "Author"
+msgstr ""
+
+#: zzbrick_tables/notes.php:105
+msgid "Events"
+msgstr ""
+
+#: zzbrick_tables/notes.php:118
+msgid "Projects"
+msgstr ""
+
+#: zzbrick_tables/notes.php:150
+msgid "Categories"
+msgstr ""
+
+#: zzbrick_tables/notes.php:164
+#: zzbrick_tables/notes-access.php:46
+msgid "Access"
+msgstr ""
+
+#: zzbrick_tables/notes.php:179
+msgid "Media"
+msgstr ""
+
+#: zzbrick_tables/notes.php:192
+msgid "Identifier"
+msgstr ""
+
+#: zzbrick_tables/notes.php:197
+#: zzbrick_tables/notes-access.php:58
+#: zzbrick_tables/notes-categories.php:47
+#: zzbrick_tables/notes-events.php:47
+#: zzbrick_tables/notes-media.php:50
+#: zzbrick_tables/notes-notes.php:41
+msgid "Last update"
+msgstr ""
+
+#: zzbrick_tables/notes-access.php:16
 msgid "Access to Notes"
 msgstr ""
 
-#: zzbrick_tables/notes-categories.php
+#: zzbrick_tables/notes-access.php:31
+#: zzbrick_tables/notes-categories.php:31
+#: zzbrick_tables/notes-events.php:31
+#: zzbrick_tables/notes-media.php:32
+msgid "No."
+msgstr ""
+
+#: zzbrick_tables/notes-access.php:38
+msgid "Usergroup"
+msgstr ""
+
+#: zzbrick_tables/notes-categories.php:16
 msgid "Categories for Notes"
 msgstr ""
 
-#: zzbrick_tables/notes-events.php
+#: zzbrick_tables/notes-categories.php:38
+msgid "Category"
+msgstr ""
+
+#: zzbrick_tables/notes-events.php:16
 msgid "Notes per Event"
 msgstr ""
 
-#: zzbrick_tables/notes-media.php
+#: zzbrick_tables/notes-events.php:38
+msgid "Event"
+msgstr ""
+
+#: zzbrick_tables/notes-media.php:16
 msgid "Media for Notes"
 msgstr ""
 
-#: zzbrick_tables/notes-notes.php
+#: zzbrick_tables/notes-media.php:39
+msgid "Medium"
+msgstr ""
+
+#: zzbrick_tables/notes-notes.php:16
 msgid "Collections of Notes"
 msgstr ""
