@@ -6,7 +6,7 @@
  * https://www.zugzwang.org/modules/notes
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2025 Gustaf Mossakowski
+ * @copyright Copyright © 2025-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -23,3 +23,8 @@
 /* 2025-12-11-5 */	ALTER TABLE `notes_categories` ADD `sequence` tinyint unsigned NOT NULL DEFAULT '1' AFTER `category_id`;
 /* 2025-12-11-6 */	ALTER TABLE `notes_access` ADD `sequence` tinyint unsigned NOT NULL DEFAULT '1' AFTER `access_category_id`;
 /* 2025-12-11-7 */	ALTER TABLE `notes_media` ADD `sequence` tinyint unsigned NOT NULL DEFAULT '1' AFTER `medium_id`;
+/* 2026-07-31-1 */	UPDATE webpages SET parameters = REPLACE(parameters, '&access=work_minutes', '&access=notes_minutes') WHERE parameters LIKE '%&access=work_minutes%';
+/* 2026-07-31-2 */	UPDATE webpages SET parameters = REPLACE(parameters, '&access=work_minutes_edit', '&access=notes_minutes_edit') WHERE parameters LIKE '%&access=work_minutes_edit%';
+/* 2026-07-31-3 */	UPDATE access SET access_key = 'notes_minutes', module = 'notes' WHERE access_key = 'work_minutes';
+/* 2026-07-31-4 */	UPDATE access SET access_key = 'notes_minutes_edit', module = 'notes' WHERE access_key = 'work_minutes_edit';
+/* 2026-07-31-5 */	UPDATE categories SET parameters = REPLACE(parameters, '&protocol=1', '&notes_has_minutes=1') WHERE parameters LIKE '%&protocol=1%';
