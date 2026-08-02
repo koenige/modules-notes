@@ -28,3 +28,4 @@
 /* 2026-07-31-3 */	UPDATE access SET access_key = 'notes_minutes', module = 'notes' WHERE access_key = 'work_minutes';
 /* 2026-07-31-4 */	UPDATE access SET access_key = 'notes_minutes_edit', module = 'notes' WHERE access_key = 'work_minutes_edit';
 /* 2026-07-31-5 */	UPDATE categories SET parameters = REPLACE(parameters, '&protocol=1', '&notes_has_minutes=1') WHERE parameters LIKE '%&protocol=1%';
+/* 2026-08-02-1 */	UPDATE webpages SET content = REPLACE(content, '%%% forms event-notes *', '%%% forms notes-event *') WHERE content LIKE '%\%\%\% forms event-notes *%';
