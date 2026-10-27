@@ -88,7 +88,6 @@ if (wrap_package('contacts')) {
 	$zz['fields'][5]['sql'] = 'SELECT contact_id, contact, identifier
 		FROM /*_PREFIX_*/contacts
 		ORDER BY identifier';
-	$zz['fields'][5]['sql_character_set'][1] = 'utf8';
 	$zz['fields'][5]['display_field'] = 'contact';
 	$zz['fields'][5]['link'] = [
 		'area' => 'contacts_profile[%s]',

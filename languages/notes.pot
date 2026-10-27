@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- notes module\n"
-"POT-Creation-Date: 2026-07-14 17:42+0000\n"
+"POT-Creation-Date: 2026-10-27 23:02+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -63,32 +63,32 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: zzbrick_tables/notes.php:105
+#: zzbrick_tables/notes.php:104
 msgid "Events"
 msgstr ""
 
-#: zzbrick_tables/notes.php:118
+#: zzbrick_tables/notes.php:117
 msgid "Projects"
 msgstr ""
 
-#: zzbrick_tables/notes.php:150
+#: zzbrick_tables/notes.php:149
 msgid "Categories"
 msgstr ""
 
-#: zzbrick_tables/notes.php:164
+#: zzbrick_tables/notes.php:163
 #: zzbrick_tables/notes-access.php:46
 msgid "Access"
 msgstr ""
 
-#: zzbrick_tables/notes.php:179
+#: zzbrick_tables/notes.php:178
 msgid "Media"
 msgstr ""
 
-#: zzbrick_tables/notes.php:192
+#: zzbrick_tables/notes.php:191
 msgid "Identifier"
 msgstr ""
 
-#: zzbrick_tables/notes.php:197
+#: zzbrick_tables/notes.php:196
 #: zzbrick_tables/notes-access.php:58
 #: zzbrick_tables/notes-categories.php:47
 #: zzbrick_tables/notes-events.php:47
