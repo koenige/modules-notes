@@ -90,8 +90,8 @@ if (wrap_package('contacts')) {
 		ORDER BY identifier';
 	$zz['fields'][5]['display_field'] = 'contact';
 	$zz['fields'][5]['link'] = [
-		'area' => 'contacts_profile[%s]',
-		'area_fields' => ['contact_scope'],
+		'route' => 'contacts_profile[%s]',
+		'route_fields' => ['contact_scope'],
 		'fields' => ['contact_identifier']
 	];
 	$zz['fields'][5]['default'] = $_SESSION['user_id'];
